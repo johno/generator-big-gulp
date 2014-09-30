@@ -1,13 +1,13 @@
-var gulp    = require('gulp');
-var sass    = require('gulp-sass');
-var rename  = require('gulp-rename');
-var cssmin  = require('gulp-minify-css');
-var concat  = require('gulp-concat');
-var uglify  = require('gulp-uglify');
-var jshint  = require('gulp-jshint');
-var csslint = require('gulp-csslint');
-var prefix  = require('gulp-autoprefixer');
-var size    = require('gulp-size');
+var gulp    = require('gulp'),
+    sass    = require('gulp-sass'),
+    rename  = require('gulp-rename'),
+    cssmin  = require('gulp-minify-css'),
+    concat  = require('gulp-concat'),
+    uglify  = require('gulp-uglify'),
+    jshint  = require('gulp-jshint'),
+    csslint = require('gulp-csslint'),
+    prefix  = require('gulp-autoprefixer'),
+    size    = require('gulp-size');
 
 gulp.task('scss', function() {
   return gulp.src('scss/all.scss')
