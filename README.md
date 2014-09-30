@@ -1,6 +1,18 @@
 # Big Gulp
 
-A useful [Yeoman](http://yeoman.io) generator for a simple gulpfile for Sass, CSS, and js. It can be incorporated with existing apps, or be used on a fresh project to get up and running with [gulp](http://gulpjs.com).
+An awesome [Yeoman](http://yeoman.io) generator for a simple gulpfile for Sass, CSS, and js. It can be incorporated
+with existing apps, or be used on a fresh project to get up and running with [gulp](http://gulpjs.com).
+
+This generator will create a gulpfile.js in your current directory and optionally add npm dependencies for Gulp
+plugins. There's also an option to generate the following project structure:
+
+```
+dist/
+  -- js/
+  -- css/
+js/
+scss/
+```
 
 ## Installation
 
