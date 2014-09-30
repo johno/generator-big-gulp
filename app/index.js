@@ -9,22 +9,6 @@ var BigGulpGenerator = yeoman.generators.Base.extend({
     this.pkg = require('../package.json');
   },
 
-  installGulpAndGulpPlugins: function() {
-    var done = this.async();
-    this.npmInstall([
-      'gulp',
-      'gulp-autoprefixer',
-      'gulp-concat',
-      'gulp-csslint',
-      'gulp-jshint',
-      'gulp-minify-css',
-      'gulp-rename',
-      'gulp-sass',
-      'gulp-uglify',
-      'gulp-size'
-    ], { 'saveDev': true }, done);
-  }
-
   prompting: function () {
     var done = this.async();
 
@@ -38,13 +22,39 @@ var BigGulpGenerator = yeoman.generators.Base.extend({
       name: 'runNpmInstall',
       message: 'Would you like to include the default gulp plugins from npm?',
       default: true
+    }, {
+      type: 'confirm',
+      name: 'createFolders',
+      message: 'Would you like big-gulp to generate a directory structure?',
+      default: true
     }];
 
     this.prompt(prompts, function (props) {
       this.runNpmInstall = props.runNpmInstall;
+      this.createFolders = props.createFolders;
 
       if (this.runNpmInstall) {
-        this.installGulpAndGulpPlugins();
+        var installDone = this.async();
+        this.npmInstall([
+          'gulp',
+          'gulp-autoprefixer',
+          'gulp-concat',
+          'gulp-csslint',
+          'gulp-jshint',
+          'gulp-minify-css',
+          'gulp-rename',
+          'gulp-sass',
+          'gulp-uglify',
+          'gulp-size'
+        ], { 'saveDev': true }, installDone);
+      }
+
+      if (this.createFolders) {
+        this.mkdir('scss');
+        this.mkdir('js');
+        this.mkdir('dist');
+        this.mkdir('dist/css');
+        this.mkdir('dist/js');
       }
 
       done();
@@ -53,18 +63,12 @@ var BigGulpGenerator = yeoman.generators.Base.extend({
 
   writing: {
     app: function () {
-      this.dest.mkdir('dist');
-      this.dest.mkdir('scss');
-      this.dest.mkdir('js');
-      this.dest.mkdir('dist/css');
-      this.dest.mkdir('dist/js');
-
-      this.src.copy('_package.json', 'package.json');
-      this.src.copy('_bower.json', 'bower.json');
+      this.copy('_package.json', 'package.json');
+      this.copy('_bower.json', 'bower.json');
     },
 
     projectfiles: function () {
-      this.src.copy('gulpfile.js', 'gulpfile.js');
+      this.copy('gulpfile.js', 'gulpfile.js');
     }
   },
 
