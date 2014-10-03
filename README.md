@@ -20,12 +20,12 @@ scss/
 npm install -g generator-big-gulp
 ```
 
-#### If you don't have `npm` and `yo` installed
+##### If you don't have `npm` and `yo` installed
 
   1. Install [npm](https://npmjs.org).
   * Install yo with `$ npm install -g yo`
 
-### Initiate the generator:
+##### Initiate the generator:
 
 ```bash
 yo big-gulp
