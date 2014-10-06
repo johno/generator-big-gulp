@@ -12,7 +12,8 @@ describe('big-gulp:app', function () {
       .inDir(path.join(os.tmpdir(), './temp-test'))
       .withOptions({ 'skip-install': true })
       .withPrompt({
-        runNpmInstall: true
+        runNpmInstall: true,
+        createFolders: true
       })
       .on('end', done);
   });
@@ -20,7 +21,11 @@ describe('big-gulp:app', function () {
   it('creates files', function () {
     assert.file([
       'package.json',
-      'gulpfile.js'
+      'gulpfile.js',
+      'scss/.gitkeep',
+      'js/.gitkeep',
+      'dist/scss/.gitkeep',
+      'dist/js/.gitkeep'
     ]);
   });
 });
