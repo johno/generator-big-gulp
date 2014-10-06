@@ -69,6 +69,7 @@ var BigGulpGenerator = yeoman.generators.Base.extend({
   writing: {
     app: function () {
       this.copy('_package.json', 'package.json');
+      this.copy('_bower.json', 'bower.json');
     },
 
     projectfiles: function () {
