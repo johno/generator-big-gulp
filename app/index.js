@@ -55,6 +55,11 @@ var BigGulpGenerator = yeoman.generators.Base.extend({
         this.mkdir('dist');
         this.mkdir('dist/css');
         this.mkdir('dist/js');
+
+        this.copy('.gitkeep', 'scss/.gitkeep');
+        this.copy('.gitkeep', 'js/.gitkeep');
+        this.copy('.gitkeep', 'dist/css/.gitkeep');
+        this.copy('.gitkeep', 'dist/js/.gitkeep');
       }
 
       done();
@@ -64,10 +69,6 @@ var BigGulpGenerator = yeoman.generators.Base.extend({
   writing: {
     app: function () {
       this.copy('_package.json', 'package.json');
-      this.copy('.gitkeep', 'scss');
-      this.copy('.gitkeep', 'js');
-      this.copy('.gitkeep', 'dist/css');
-      this.copy('.gitkeep', 'dist/js');
     },
 
     projectfiles: function () {
