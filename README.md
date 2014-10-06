@@ -1,5 +1,7 @@
 # Big Gulp
 
+[![Build Status](https://travis-ci.org/johnotander/generator-big-gulp.svg?branch=master)](https://travis-ci.org/johnotander/generator-big-gulp)
+
 An awesome [Yeoman](http://yeoman.io) generator for a simple gulpfile for Sass, CSS, and js. It can be incorporated
 with existing apps, or be used on a fresh project to get up and running with [gulp](http://gulpjs.com).
 
