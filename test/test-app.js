@@ -12,17 +12,15 @@ describe('big-gulp:app', function () {
       .inDir(path.join(os.tmpdir(), './temp-test'))
       .withOptions({ 'skip-install': true })
       .withPrompt({
-        someOption: true
+        runNpmInstall: true
       })
       .on('end', done);
   });
 
   it('creates files', function () {
     assert.file([
-      'bower.json',
       'package.json',
-      '.editorconfig',
-      '.jshintrc'
+      'gulpfile.js'
     ]);
   });
 });
