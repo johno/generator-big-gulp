@@ -27,6 +27,14 @@ var BigGulpGenerator = yeoman.generators.Base.extend({
       name: 'createFolders',
       message: 'Would you like big-gulp to generate a directory structure?',
       default: true
+    }, {
+      type: 'confirm',
+      name: 'addJsBuildProcess',
+      message: 'Would you like to add javascript concatenation and uglification to the gulpfile?'
+    }, {
+      type: 'confirm',
+      name: 'addScssBuildProcess',
+      message: 'Would you like to add SCSS preprocessing and minification to the gulpfile?'
     }];
 
     this.prompt(prompts, function (props) {
