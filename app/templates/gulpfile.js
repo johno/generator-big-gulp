@@ -38,7 +38,7 @@ gulp.task('js', function() {
     .pipe(uglify())
     .pipe(size({ gzip: true, showFiles: true }))
     .pipe(concat('j.js'))
-    .pipe(gulp.dest('js'));
+    .pipe(gulp.dest('dist/js'));
 });
 
 gulp.task('jshint', function() {
